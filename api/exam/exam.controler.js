@@ -36,23 +36,4 @@ const getExamslist = async (req,res)=>{
 }
 // create exam request
 
-const createExam = async(req,res)=>{
-    prams = {
-        title : req.body.title,
-        time : req.body.time,
-        genre : req.body.genre,
-        teacher : req.body.teacher_id
-    }
-    await exam.create(prams,(err,exam)=>{
-        if(!err){
-            res.json({
-                data:exam
-            })
-        }else{
-            res.json({
-                err:err
-            })
-        }
-    })
-}
-module.exports = {getExam,createExam,getExamslist}
+module.exports = {getExam,getExamslist}
