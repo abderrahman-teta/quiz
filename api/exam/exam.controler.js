@@ -19,9 +19,9 @@ const getExam = async (req,res)=>{
 }
 
 // 
-const getExamslist = async (req,res)=>{
+const getExamslist = (req,res)=>{
     
-    await exam.find({},(err,list)=>{
+     exam.find({},(err,list)=>{
         if(!err){
             res.json({
                 data:list
@@ -36,14 +36,14 @@ const getExamslist = async (req,res)=>{
 }
 // create exam request
 
-const createExam = async(req,res)=>{
+const createExam = (req,res)=>{
     prams = {
         title : req.body.title,
         time : req.body.time,
         genre : req.body.genre,
         teacher : req.body.teacher_id
     }
-    await exam.create(prams,(err,exam)=>{
+     exam.create(prams,(err,exam)=>{
         if(!err){
             res.json({
                 data:exam
