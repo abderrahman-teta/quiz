@@ -4,12 +4,20 @@ const bodyParser = require('body-parser')
 
 const app = express()
 
+const morgan = require('morgan')
+
 const port = process.env.PORT || 8080
 
-/*app.use((req,res,next)=>{
-    res.header('Access-Allow-Control-Origin','*');
-    res.header('Access-Allow-Control-Headers','Origin,X-Requested-With,Content-Type,Accept,Authorization')
-});*/
+
+app.use(morgan('dev'))
+
+app.use((req,res,next)=>{
+    res.header('Access-Control-Allow-Origin','*');
+    res.header('Access-Control-Allow-Headers','Origin,X-Requested-With,Content-Type,Accept,Authorization');
+    if(req.method === 'OPTIONS'){
+        res.header('Access-Control-Allow-Methods','POST,GET');
+    }
+});
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
