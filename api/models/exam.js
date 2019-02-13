@@ -17,7 +17,8 @@ const examSchema = new mongoose.Schema({
     teacher :{
         type: String,
         ref:teacher
-    }
+    },
+    questions: Array,
 })
 
 
