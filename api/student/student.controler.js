@@ -33,25 +33,35 @@ const login =  async(req,res) =>{
 // signup function
 const signup = (req,res) =>{
 
-    prams = {
+    params = {
         user_name:req.body.user_name,
         first_name:req.body.first_name,
         last_name:req.body.last_name,
         birthday:req.body.birthday,
-        password:req.body.password
+        password:req.body.password,
+        password2:req.body.password2
     }
-    studentSch.create(prams,(err,field)=>{
-        if(err){
-            res.json({
-                data: err
-            })
-        }
-        else{
-            res.json({
-                data: field
-            })
-        }
-    })
+
+    if(params.password == params.password2 ){
+        studentSch.create(prams,(err,field)=>{
+            if(err){
+                res.json({
+                    data: err
+                })
+            }
+            else{
+                res.json({
+                    data: field
+                })
+            }
+        })
+
+    }else{
+        res.json({
+            data: "passwords not match"
+        })
+    }
+    
     
 }
 
