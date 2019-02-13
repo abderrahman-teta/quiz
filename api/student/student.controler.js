@@ -41,7 +41,7 @@ const signup = (req,res) =>{
         password:req.body.password,
         password2:req.body.password2
     }
-
+// match password
     if(params.password == params.password2 ){
         studentSch.create(prams,(err,field)=>{
             if(err){
