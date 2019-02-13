@@ -16,6 +16,10 @@ const examSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref:'teacher'
     },
+    questions:{
+        type: Array,
+        default : []
+    }
     
 })
 
