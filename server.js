@@ -6,6 +6,11 @@ const app = express()
 
 const port = process.env.PORT || 8080
 
+/*app.use((req,res,next)=>{
+    res.header('Access-Allow-Control-Origin','*');
+    res.header('Access-Allow-Control-Headers','Origin,X-Requested-With,Content-Type,Accept,Authorization')
+});*/
+
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json())

@@ -31,7 +31,7 @@ const getExamslist = (req,res)=>{
                 err:"not existe"
             })
         }
-    }).populate('5c648f4c767e64221089ad32')
+    })
     
 }
 // create exam request
