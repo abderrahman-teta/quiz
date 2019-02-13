@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-const teacher = require('./teacher');
-
 const examSchema = new mongoose.Schema({
     title : {
         type : String,
@@ -15,10 +13,10 @@ const examSchema = new mongoose.Schema({
         type:String
     },
     teacher :{
-        type: String,
-        ref:teacher
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'teacher'
     },
-    questions: Array,
+    
 })
 
 
