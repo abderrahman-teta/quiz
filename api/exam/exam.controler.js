@@ -37,22 +37,23 @@ const getExamslist = (req,res)=>{
 // create exam request
 
 const createExam = (req,res)=>{
-    prams = {
+   let params  = new exam({
         title : req.body.title,
         time : req.body.time,
         genre : req.body.genre,
         teacher : req.body.teacher_id
-    }
-     exam.create(prams,(err,exam)=>{
-        if(!err){
-            res.json({
-                data:exam
-            })
-        }else{
-            res.json({
-                err:err
-            })
-        }
     })
+    params
+        .save()
+        .then(result =>{
+            res.json({
+                data:result
+            })
+        }).catch(err =>{
+            res.json({
+                err : err
+            })
+    })
+        
 }
 module.exports = {getExam,createExam,getExamslist}
