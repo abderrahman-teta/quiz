@@ -31,7 +31,7 @@ const getExamslist = (req,res)=>{
                 err:"not existe"
             })
         }
-    }).populate('nabil').exec()
+    }).populate('teacher')
     
 }
 // create exam request
