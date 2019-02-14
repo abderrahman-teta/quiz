@@ -58,8 +58,8 @@ const createExam = (req,res)=>{
 // findby id 
 
 const getExambyid = (req,res)=>{
-    let id = req.params.id
-    exam.findById(id)
+    const _id = req.params.id
+    exam.findById(_id)
         .then(result =>{
             res.json({
                 data:result
@@ -71,4 +71,22 @@ const getExambyid = (req,res)=>{
             })
         })
 }
-module.exports = {getExam,createExam,getExamslist,getExambyid}
+// delete exam
+
+const deleteexam = (req,res)=> {
+    const _id = req.params.id
+    exam.remove({_id: _id})
+        .then(result =>{
+            res.json({
+                data:result,
+                message : 'deleting success'
+            })
+        })
+        .catch( err =>{
+            res.json({
+                err : err,
+                message : 'deleting failed'
+            })
+        })
+}
+module.exports = {getExam,createExam,getExamslist,getExambyid,deleteexam}
