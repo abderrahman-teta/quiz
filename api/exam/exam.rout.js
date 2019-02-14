@@ -2,12 +2,14 @@ const express = require('express')
 
 const exam = express.Router()
 
-const {getExam,createExam,getExamslist} = require('./exam.controler')
+const {getExam,createExam,getExamslist,getExambyid} = require('./exam.controler')
 
-exam.post('/getexam',getExam)
+exam.get('/getexam',getExam)
 
-exam.post('/getexamlsit',getExamslist)
+exam.get('/getexamlsit',getExamslist)
 
 exam.post('/createexam',createExam)
+
+exam.get('/:id',getExambyid)
 
 module.exports = exam

@@ -56,4 +56,22 @@ const createExam = (req,res)=>{
     })
         
 }
+
+// findby id 
+
+const getExambyid = (req,res)=>{
+    let id = req.params.id
+    exam.findById(id)
+        .exec()
+        .then(result =>{
+            res.json({
+                data:result
+            })
+        })
+        .catch(err =>{
+            res.json({
+                err:err
+            })
+        })
+}
 module.exports = {getExam,createExam,getExamslist}
