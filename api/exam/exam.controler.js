@@ -62,7 +62,6 @@ const createExam = (req,res)=>{
 const getExambyid = (req,res)=>{
     let id = req.params.id
     exam.findById(id)
-        .exec()
         .then(result =>{
             res.json({
                 data:result
@@ -74,4 +73,4 @@ const getExambyid = (req,res)=>{
             })
         })
 }
-module.exports = {getExam,createExam,getExamslist}
+module.exports = {getExam,createExam,getExamslist,getExambyid}
