@@ -17,22 +17,19 @@ const getExam = async (req,res)=>{
     })
     
 }
-
-// 
 const getExamslist = (req,res)=>{
     
-     exam.find({},(err,list)=>{
-        if(!err){
-            res.json({
-                data:list
-            })
-        }else{
-            res.json({
-                err:"not existe"
-            })
-        }
-    })
-    
+     exam.find()
+         .then(docs =>{
+             res.json({
+                 data:docs
+             })
+         })
+         .catch(err =>{
+             res.json({
+                 err: err
+             })
+         })   
 }
 // create exam request
 
