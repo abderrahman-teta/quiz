@@ -1,20 +1,21 @@
 const exam = require('../models/exam')
 
-const getExam = async (req,res)=>{
-    prams = {
-        title:req.body.title,
+const getExam =  (req,res)=>{
+    let params = {
+        title:req.query.title
     }
-    await exam.find(prams,(err,exam)=>{
-        if(!err){
+    exam.find(params)
+        .then(doc =>{
             res.json({
-                data:exam
+                data : doc
             })
-        }else{
-            res.json({
-                err:"not existe"
+            .catch(err =>{
+                res.json({
+                    err:err
+                })
             })
-        }
-    })
+        })
+    
     
 }
 const getExamslist = (req,res)=>{
