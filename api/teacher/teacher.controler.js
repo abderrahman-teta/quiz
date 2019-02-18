@@ -1,4 +1,4 @@
-const teacherSch = require('../models/teacher')
+
 
 const signup = (req,res) => {
      prams = {

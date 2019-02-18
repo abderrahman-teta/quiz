@@ -1,4 +1,4 @@
-const exam = require('../models/exam')
+
 
 const getExam =  (req,res)=>{
     let params = {

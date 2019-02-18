@@ -1,33 +1,18 @@
 
-const studentSch = require('../models/student')
-
-
+const connection = require('../config/db')
 // login function 
 const login =  async(req,res) =>{
     const user_name = req.body.user_name
     const pass1 = req.body.password
-    await studentSch.findOne({user_name:user_name},(err,field)=>{
-        if(field == null){
-            res.json({
-                err: "username or password incorrect"
-            }) 
-        }else{
-            if(field.password === pass1){
-                res.json({
-                    data: field
-                })
-            }else
-            {
-                res.json({
-                    err: "username or password incorrect"
-                })
-            }
-        }
-    })
+   
+    connection.query("SELECT * FROM student", function (err, result, fields) {
+        if (err) throw err;
+        res.json({
+            result : result
+         });
+      });
 
-    res.json({
-        api_studentCrt: true
-    })
+    
 }
 
 // signup function
