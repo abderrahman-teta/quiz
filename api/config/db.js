@@ -1,5 +1,16 @@
-const mongoose = require('mongoose');
+const  mysql      = require('mysql');
+const  connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '',
+  database : 'memoire'
+});
 
-mongoose.connect('mongodb://abderrahman:abdo12345678@ds145194.mlab.com:45194/memoire');
-
-module.exports = mongoose;
+connection.connect(function(err) {
+    if (err) {
+      console.error('error connecting: ' + err.stack);
+      return;
+    }
+  
+    console.log('connected as id ' + connection.threadId);
+  });
