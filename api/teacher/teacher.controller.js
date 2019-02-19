@@ -1,5 +1,7 @@
 
 
+const connection = require('../config/db')
+
 const login  = (req,res) => {
     const user_name = req.body.user_name_
     const password = req.body.password_
