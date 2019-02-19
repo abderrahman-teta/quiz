@@ -31,7 +31,7 @@ CREATE TABLE teacher (
 -- create exam table
 CREATE TABLE teacher (
     id  int  NOT NULL AUTO_INCREMENT,
-    first_name VARCHAR(55),
+    title VARCHAR(55),
     last_name VARCHAR(55),
     email VARCHAR(55),
     birthday VARCHAR(55),
