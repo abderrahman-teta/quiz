@@ -37,13 +37,12 @@ const signup = (req,res) =>{
         req.body.birthday,
         req.body.gender,
         req.body.password_,
-        req.body.password_2,
-        req.body.user_name_
-        
+        req.body.user_name_,
+        req.body.password_2
     ]
 // match password
 //dfgf
-    if(params.password == params.password2 ){
+    if(params[5] == params[7]){
         connection.query(`INSERT INTO student VALUES('',?,?,?,?,?,?,?)`,params, function (err, result, fields) {
             if (err) throw err;
             res.json({
