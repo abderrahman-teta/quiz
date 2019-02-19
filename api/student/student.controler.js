@@ -19,29 +19,24 @@ const login =  async(req,res) =>{
 const signup = (req,res) =>{
 
     params = {
-        user_name:req.body.user_name,
         first_name:req.body.first_name,
         last_name:req.body.last_name,
+        email:req.body.birthday,
         birthday:req.body.birthday,
-        password:req.body.password,
-        password2:req.body.password2
+        gender:req.body.gender,
+        password_:req.body.password,
+        user_name_:req.body.user_name
+        
     }
 // match password
 //dfgf
     if(params.password == params.password2 ){
-        studentSch.create(prams,(err,field)=>{
-            if(err){
-                res.json({
-                    data: err
-                })
-            }
-            else{
-                res.json({
-                    data: field
-                })
-            }
-        })
-
+        connection.query("INSERT INTO student VALUES ('',?,?,?,?,?,?)",params, function (err, result, fields) {
+            if (err) throw err;
+            res.json({
+                result : result
+             });
+          });
     }else{
         res.json({
             data: "passwords not match"
