@@ -8,8 +8,6 @@ const morgan = require('morgan')
 
 const port = process.env.PORT || 8080
 
-//const cors = require('cors')
-
 app.use(morgan('dev'))
 
 app.use(bodyParser.urlencoded({ extended: false }))
