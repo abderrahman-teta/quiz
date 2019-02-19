@@ -8,7 +8,7 @@ const morgan = require('morgan')
 
 const port = process.env.PORT || 8080
 
-
+//const cors = require('cors')
 
 app.use(morgan('dev'))
 
@@ -16,14 +16,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json())
 
-
-//db = require('./api/config/db')
-
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+    res.header("Access-Control-Allow-Origin", "http://localhost:5500")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    next()
+})
 
 const Router = require('./api/main.rout')
 

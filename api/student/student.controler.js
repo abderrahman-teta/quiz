@@ -21,7 +21,7 @@ const signup = (req,res) =>{
     params = {
         first_name:req.body.first_name,
         last_name:req.body.last_name,
-        email:req.body.birthday,
+        email:req.body.email,
         birthday:req.body.birthday,
         gender:req.body.gender,
         password_:req.body.password_,
