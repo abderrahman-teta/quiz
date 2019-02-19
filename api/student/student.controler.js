@@ -2,15 +2,27 @@
 const connection = require('../config/db')
 // login function 
 const login =  async(req,res) =>{
-    const user_name = req.body.user_name
-    const pass1 = req.body.password
+    const user_name = req.body.user_name_
+    const password = req.body.password_
    
-    connection.query("SELECT * FROM student", function (err, result, fields) {
-        if (err) throw err;
-        res.json({
-            result : result
-         });
-      });
+    if (user_name && password) {
+		connection.query('SELECT * FROM student WHERE user_name_ = ? AND password_ = ?', [user_name, password], function(error, results, fields) {
+			if (results.length > 0) {
+				res.json({
+                    result: 'welcome to your profile',
+                });
+			} else {
+				res.json({
+                    err: 'Incorrect Username and/or Password!'
+                    
+                });
+			}			
+			res.end();
+		});
+	} else {
+		res.json('Please enter Username and Password!');
+		res.end();
+	}
 
     
 }
