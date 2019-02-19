@@ -41,4 +41,4 @@ const signup = (req,res) => {
 
 }
 
-module.exports = {signup}
+module.exports = {signup,login}
