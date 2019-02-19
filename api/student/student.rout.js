@@ -2,7 +2,7 @@ const express = require('express')
 
 const student = express.Router()
 
-const {login,signup} = require('./student.controler')
+const {login,signup} = require('./student.controller')
 
 student.post('/login',login)
 
