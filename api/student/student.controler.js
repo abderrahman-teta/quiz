@@ -4,7 +4,7 @@ const connection = require('../config/db')
 const login =  async(req,res) =>{
     const user_name = req.body.user_name_
     const password = req.body.password_
-   
+    console.log(user_name,password);
     if (user_name && password) {
 		connection.query('SELECT * FROM student WHERE user_name_ = ? AND password_ = ?', [user_name, password], function(error, results, fields) {
 			if (results.length > 0) {
