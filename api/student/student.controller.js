@@ -20,14 +20,14 @@ const login =  async(req,res) =>{
 			res.end();
 		});
 	} else {
-		res.json('Please enter Username and Password!');
+		res.json('Please  enter Username and Password!');
 		res.end();
 	}
 
     
 }
 
-// signup function
+// signup function 
 const signup = (req,res) =>{
 
     params = [
