@@ -6,7 +6,9 @@ const app = express()
 
 const morgan = require('morgan')
 
-const port = process.env.PORT || 8080
+const path = require('path')
+
+const port = process.env.PORT || 3000
 
 app.use(morgan('dev'))
 
@@ -14,31 +16,27 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json())
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:5500")
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-    next()
-})
+app.set("view engine", "pug")
 
-const Router = require('./api/main.rout')
+app.set("views", path.join(__dirname, "views"))
 
-const studentRouter = require('./api/student/student.rout')
+app.use(express.static( path.join(__dirname, "public")))
 
-const teacherRouter = require('./api/teacher/teacher.rout')
+const db = require('./app/config/db')
 
-const examRouter = require('./api/exam/exam.rout')
+const Router = require('./app/main.rout')
 
-const teacherDashbordRouter = require('./api/teacher/teacher.dachboard.rout')
+const examRouter = require('./app/exam/exam.rout')
 
-app.use('/student',studentRouter)
+const teacherDashbordRouter = require('./app/teacher/teacher.dachboard.rout')
 
-app.use('/teacher',teacherRouter)
+app.use('/',Router)
 
 app.use('/exam',examRouter)
 
 app.use('/teacher/dashboard',teacherDashbordRouter)
 
-app.all('*',(req,res)=>{res.json({ page:404 })})
+app.all('*',(req,res)=>{res.render('404')})
 
 app.listen(port , ()=>{
     console.log("magic hapens on port "+port)

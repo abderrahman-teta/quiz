@@ -2,9 +2,7 @@ const express = require('express')
 
 const teacher = express.Router()
 
-const {signup,login} = require('./teacher.controller')
-
-teacher.post('/login',login)
+const {signup} = require('./teacher.controller')
 
 teacher.post('/signup',signup)
 
