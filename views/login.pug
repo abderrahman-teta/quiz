@@ -1,1 +1,28 @@
-h1 5555
+doctype html
+html
+	head
+		title Login
+		link(rel="stylesheet" , href="/css/signup.css")
+	body
+		.box
+			p LogIn
+			form(method="POST" , action="/teacher/login")
+				
+				.group
+					label Email
+					br
+					input(type="email" name="email" placeholder="Email " class="input")
+				
+				.group
+					label Password
+					br
+					input(type="password" name="password" placeholder="Password " class="input")
+				
+				button(type="submit" class="signup") LOGIN
+				.signin
+					a(href="/forget" class="forget") forget password
+					a(href="/signup" class="create") create a acount
+
+
+			
+
