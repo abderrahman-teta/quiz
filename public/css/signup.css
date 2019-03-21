@@ -1,0 +1,74 @@
+@font-face {
+  font-family: cairo;
+  src: url(../font/Cairo-Regular.ttf);
+}
+body{
+	margin: 0;
+	padding:0;
+	background: #3498db
+}
+.box{
+	width:400px;
+	margin: 0 auto;
+	margin-top: 20px;
+	background: #fff;
+	padding: 20px;
+	font-family: cairo;
+	box-shadow: 0px 1px 10px #999;
+	border-radius:5px;
+	color:#666;
+}
+.box p{
+	font-family: cairo;
+	font-size: 20px;
+}
+.box form .group label{
+	font-size: 18px
+}
+.box form {
+	margin-top:-15px 
+}
+.box form .group input{
+	width: 95%;
+	height: 30px;
+	border: none;
+	border-radius:5px;
+	padding: 5px;
+	font-family: cairo;
+	font-size: 16px;
+	margin: 4px 0;
+	border:1px solid #eee;
+}
+.box form .signup{
+	width: 98.5%;
+	font-family: cairo;
+	border:none;
+	height: 40px;
+	cursor: pointer;
+	background: #ff6b81;
+	border-radius:5px;
+	color: #f5f5f5;
+	margin-top: 12px;
+	font-size: 20px;
+	transition: background .3s;
+}
+.box form .signup:hover{
+	background: #ff4757;
+	color: #fff
+}
+.box form .forget{
+	text-decoration: none;
+	width: 72%;
+	float: left
+}
+.box form .create{
+	text-decoration: none;
+
+}
+.box form .login {
+	text-decoration: none;
+	text-align: right;
+	margin-right: 8px; 
+	
+}
+
