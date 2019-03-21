@@ -8,7 +8,7 @@ const morgan = require('morgan')
 
 const path = require('path')
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3002
 
 app.use(morgan('dev'))
 
@@ -28,13 +28,13 @@ const Router = require('./app/main.rout')
 
 const examRouter = require('./app/exam/exam.rout')
 
-const teacherDashbordRouter = require('./app/teacher/teacher.dachboard.rout')
+const teacherRouter = require('./app/teacher/teacher.rout')
 
 app.use('/',Router)
 
 app.use('/exam',examRouter)
 
-app.use('/teacher/dashboard',teacherDashbordRouter)
+app.use('/teacher',teacherRouter)
 
 app.all('*',(req,res)=>{res.render('404')})
 
