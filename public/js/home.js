@@ -4,7 +4,7 @@
 
     let list = [] 
 
-    const url = 'http://localhost:3000/exam/getexamlist'
+    const url = 'http://localhost:3002/exam/getexamlist'
 
     const xhr = new XMLHttpRequest()
 
