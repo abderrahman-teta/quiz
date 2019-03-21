@@ -1,1 +1,40 @@
-h2 554878
+doctype html
+html
+	head
+		title signup
+		link(rel="stylesheet" , href="/css/signup.css")
+	body
+		.box
+			p SignUp
+			form(method="POST" , action="/teacher/signup")
+				.group
+					label First Name
+					br
+					input(type="text" name="fname" placeholder="First Name" class="input")
+				.group
+					label Last Name
+					br
+					input(type="text" name="lname" placeholder="Last Name " class="input")
+				.group
+					label Email
+					br
+					input(type="email" name="email" placeholder="Email " class="input")
+				.group
+					label Your Job
+					br
+					input(type="text" name="job" placeholder="Your Job " class="input")
+				.group
+					label Password
+					br
+					input(type="password" name="password" placeholder="Password " class="input")
+				.group
+					label Confirm Password
+					br
+					input(type="password" name="cpassword" placeholder="Password " class="input")
+				button(type="submit" class="signup") SIGNUP
+				.login
+					a(href="/login" class="create") login
+
+
+			
+
